@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Other
 
 - upgrade to metrics 0.24 / metrics-prometheus 0.10 / prometheus 0.14
+- upgrade to sysinfo 0.34
 
 ## [0.3.3](https://github.com/giangndm/metrics-dashboard-rs/compare/v0.3.2...v0.3.3) - 2024-11-26
 

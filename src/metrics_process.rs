@@ -58,11 +58,9 @@ pub fn register_sysinfo_event() {
 
     let pid = get_current_pid().expect("Should has");
     let mut sys = System::new_all();
-    let mut disks = Disks::new();
-    let mut networks = Networks::new();
+    let mut disks = Disks::new_with_refreshed_list();
+    let mut networks = Networks::new_with_refreshed_list();
 
-    disks.refresh_list();
-    networks.refresh_list();
     sys.refresh_all();
     sys.refresh_cpu_all();
 
@@ -73,8 +71,8 @@ pub fn register_sysinfo_event() {
 
     std::thread::spawn(move || {
         loop {
-            disks.refresh();
-            networks.refresh();
+            disks.refresh(true);
+            networks.refresh(true);
             sys.refresh_all();
             sys.refresh_cpu_all();
 
